@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper } from '@mui/material';
 import './Login.css';
+import axios from 'axios';
 
 function Login() {
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+
+  const login = async(email,password)=>{
+    try{
+    const response = await axios.post('http://127.0.0.1:8000/api/login',{
+      email:email,
+      password:password
+    });
+    console.log(response);
+    }catch(error){
+      console.log('error logging in', error);
+    }
+  }
   return (
     <Paper
       elevation={6}
@@ -13,10 +28,11 @@ function Login() {
       </Typography>
       <div>
         <TextField
-          id="username"
-          label="Username"
+          id="Email"
+          label="Email"
           variant="standard"
           fullWidth
+          onChange={(e)=>setEmail(e.target.value)}
           margin="normal"
           InputLabelProps={{
             className: 'input-label',
@@ -31,6 +47,7 @@ function Login() {
           type="password"
           variant="standard"
           fullWidth
+          onChange={(e)=>setPassword(e.target.value)}
           margin="normal"
           InputLabelProps={{
             className: 'input-label',
@@ -39,7 +56,7 @@ function Login() {
             className: 'input-text',
           }}
         />
-        <Button variant="contained" color="primary" fullWidth className="login-button" >
+        <Button variant="contained" color="primary" fullWidth className="login-button" onClick={()=>login(email,password)}>
           Login
         </Button>
       </div>
