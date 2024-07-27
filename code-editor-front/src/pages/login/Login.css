@@ -12,7 +12,6 @@ body {
 .login-paper {
   padding: 2rem;
   max-width: 22vw;
-  max-height: 34vh;
   backdrop-filter: blur(10px);
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
