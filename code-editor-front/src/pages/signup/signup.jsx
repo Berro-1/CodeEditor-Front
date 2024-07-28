@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextField, Button, Typography, Paper } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import "./signup.css";
 
 function Signup() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const Signup = async (name, email, password) => {
+    try {
+      if (!name || !email || !password) {
+        toast.error("Please fill all the fields");
+        return;
+      }
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+        name: name,
+        email: email,
+        password: password,
+      });
+      toast.success("Signup successful");
+      console.log(response);
+      navigate("/home");
+    } catch (error) {
+      toast.error("Error signing up in");
+      console.log("Error signing up in ", error);
+    }
+  };
+
   return (
-    <Paper
-      elevation={6}
-      sx={{
-        padding: 4,
-        background: "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(10px)",
-        borderRadius: "10px",
-        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-        border: "1px solid rgba(255, 255, 255, 0.3)",
-      }}
-    >
-      <Typography variant="h4" gutterBottom align="center">
+    <Paper elevation={6} className="login-paper">
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        className="login-title"
+      >
         Sign up
       </Typography>
       <form>
@@ -24,9 +47,13 @@ function Signup() {
           label="Username"
           variant="standard"
           fullWidth
+          onChange={(e) => setName(e.target.value)}
           margin="normal"
           InputLabelProps={{
-            style: { color: "#8FD6B3" },
+            className: "input-label",
+          }}
+          InputProps={{
+            className: "input-text",
           }}
         />
         <TextField
@@ -35,9 +62,13 @@ function Signup() {
           type="email"
           variant="standard"
           fullWidth
+          onChange={(e) => setEmail(e.target.value)}
           margin="normal"
           InputLabelProps={{
-            style: { color: "#8FD6B3" },
+            className: "input-label",
+          }}
+          InputProps={{
+            className: "input-text",
           }}
         />
         <TextField
@@ -46,12 +77,22 @@ function Signup() {
           type="password"
           variant="standard"
           fullWidth
+          onChange={(e) => setPassword(e.target.value)}
           margin="normal"
           InputLabelProps={{
-            style: { color: "#8FD6B3" },
+            className: "input-label",
+          }}
+          InputProps={{
+            className: "input-text",
           }}
         />
-        <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          className="login-button"
+          onClick={() => Signup(name, email, password)}
+        >
           Signup
         </Button>
       </form>
