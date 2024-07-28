@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/navBar/navBar";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -30,56 +31,59 @@ function Login() {
   };
 
   return (
-    <Paper elevation={6} className="login-paper">
-      <Typography
-        variant="h4"
-        gutterBottom
-        align="center"
-        className="login-title"
-      >
-        Login
-      </Typography>
-      <div>
-        <TextField
-          id="Email"
-          label="Email"
-          variant="standard"
-          fullWidth
-          onChange={(e) => setEmail(e.target.value)}
-          margin="normal"
-          InputLabelProps={{
-            className: "input-label",
-          }}
-          InputProps={{
-            className: "input-text",
-          }}
-        />
-        <TextField
-          id="password"
-          label="Password"
-          type="password"
-          variant="standard"
-          fullWidth
-          onChange={(e) => setPassword(e.target.value)}
-          margin="normal"
-          InputLabelProps={{
-            className: "input-label",
-          }}
-          InputProps={{
-            className: "input-text",
-          }}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          className="login-button"
-          onClick={() => login(email, password)}
+    <div>
+      <NavBar />
+      <Paper elevation={6} className="login-paper">
+        <Typography
+          variant="h4"
+          gutterBottom
+          align="center"
+          className="login-title"
         >
           Login
-        </Button>
-      </div>
-    </Paper>
+        </Typography>
+        <div>
+          <TextField
+            id="Email"
+            label="Email"
+            variant="standard"
+            fullWidth
+            onChange={(e) => setEmail(e.target.value)}
+            margin="normal"
+            InputLabelProps={{
+              className: "input-label",
+            }}
+            InputProps={{
+              className: "input-text",
+            }}
+          />
+          <TextField
+            id="password"
+            label="Password"
+            type="password"
+            variant="standard"
+            fullWidth
+            onChange={(e) => setPassword(e.target.value)}
+            margin="normal"
+            InputLabelProps={{
+              className: "input-label",
+            }}
+            InputProps={{
+              className: "input-text",
+            }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            className="login-button"
+            onClick={() => login(email, password)}
+          >
+            Login
+          </Button>
+        </div>
+      </Paper>
+    </div>
   );
 }
 
