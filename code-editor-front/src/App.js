@@ -1,18 +1,26 @@
-import React, { Component } from "react";
-import { Box, Container } from "@mui/material";
+import React from "react";
 import Login from "./pages/login/Loginn";
 import "./App.css";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <Box className="app-container">
-        <Container maxWidth="xs">
-          <Login />
-        </Container>
-      </Box>
-    );
-  }
+function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<Login />} />
+      </>
+    )
+  );
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;

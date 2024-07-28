@@ -1,0 +1,54 @@
+body {
+  background-color: #204E45;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-paper {
+  padding: 2rem;
+  max-width: 22vw;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: #376058 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-title {
+  color: #8FD6B3;
+}
+
+.input-label {
+  color: #8FD6B3 !important;
+}
+
+.input-text {
+  color: #fff !important;
+}
+
+.MuiInput-underline:before {
+  border-bottom-color: #4E9D84 !important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+  border-bottom-color: #8FD6B3 !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom-color: #8FD6B3 !important;
+}
+
+.login-button {
+  color: #204E45 !important;
+  background-color: #8FD6B3 !important;
+  margin-top: 1rem !important;
+}
+
+.login-button:hover {
+  background-color: #4E9D84 !important;
+}
