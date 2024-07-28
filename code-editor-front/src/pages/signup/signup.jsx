@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import "./signup.css";
-
+import NavBar from "../../components/navBar/navBar";
+import { Link } from "react-router-dom";
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,71 +33,76 @@ function Signup() {
   };
 
   return (
-    <Paper elevation={6} className="login-paper">
-      <Typography
-        variant="h4"
-        gutterBottom
-        align="center"
-        className="login-title"
-      >
-        Sign up
-      </Typography>
-      <form>
-        <TextField
-          id="username"
-          label="Username"
-          variant="standard"
-          fullWidth
-          onChange={(e) => setName(e.target.value)}
-          margin="normal"
-          InputLabelProps={{
-            className: "input-label",
-          }}
-          InputProps={{
-            className: "input-text",
-          }}
-        />
-        <TextField
-          id="email"
-          label="email"
-          type="email"
-          variant="standard"
-          fullWidth
-          onChange={(e) => setEmail(e.target.value)}
-          margin="normal"
-          InputLabelProps={{
-            className: "input-label",
-          }}
-          InputProps={{
-            className: "input-text",
-          }}
-        />
-        <TextField
-          id="password"
-          label="Password"
-          type="password"
-          variant="standard"
-          fullWidth
-          onChange={(e) => setPassword(e.target.value)}
-          margin="normal"
-          InputLabelProps={{
-            className: "input-label",
-          }}
-          InputProps={{
-            className: "input-text",
-          }}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          className="login-button"
-          onClick={() => Signup(name, email, password)}
+    <div>
+      <NavBar />
+      <Paper elevation={6} className="login-paper">
+        <Typography
+          variant="h4"
+          gutterBottom
+          align="center"
+          className="login-title"
         >
-          Signup
-        </Button>
-      </form>
-    </Paper>
+          Sign up
+        </Typography>
+
+        <form>
+          <TextField
+            id="username"
+            label="Username"
+            variant="standard"
+            fullWidth
+            onChange={(e) => setName(e.target.value)}
+            margin="normal"
+            InputLabelProps={{
+              className: "input-label",
+            }}
+            InputProps={{
+              className: "input-text",
+            }}
+          />
+          <TextField
+            id="email"
+            label="email"
+            type="email"
+            variant="standard"
+            fullWidth
+            onChange={(e) => setEmail(e.target.value)}
+            margin="normal"
+            InputLabelProps={{
+              className: "input-label",
+            }}
+            InputProps={{
+              className: "input-text",
+            }}
+          />
+          <TextField
+            id="password"
+            label="Password"
+            type="password"
+            variant="standard"
+            fullWidth
+            onChange={(e) => setPassword(e.target.value)}
+            margin="normal"
+            InputLabelProps={{
+              className: "input-label",
+            }}
+            InputProps={{
+              className: "input-text",
+            }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            className="login-button"
+            onClick={() => Signup(name, email, password)}
+          >
+            Signup
+          </Button>
+          <Link to="/">Have account</Link>
+        </form>
+      </Paper>
+    </div>
   );
 }
 
