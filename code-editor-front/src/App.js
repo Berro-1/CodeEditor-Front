@@ -9,12 +9,13 @@ import {
 import { RouterProvider } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Users from "./pages/adminDashboard/Users";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Users />} />
       </>
     )
   );

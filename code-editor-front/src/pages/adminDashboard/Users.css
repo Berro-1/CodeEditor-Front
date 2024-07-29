@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn{
+    padding: 8px 18px;
+    background-color: #8FD6B3;
+    color: #204E45;
+    border-radius: 8px;
+}
+.btn:hover {
+    background-color: #4E9D84 !important;
+  }
