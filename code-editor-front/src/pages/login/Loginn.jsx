@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const login = async (email, password) => {
     try {
       if (!email || !password) {
@@ -21,19 +22,16 @@ const navigate = useNavigate();
         password: password
       });
       toast.success('Login successful');
-      console.log(response);
-      navigate('/home')
+      localStorage.setItem('token', response.data.authorization.token);
+      navigate('/chats');
     } catch (error) {
       toast.error('Error logging in');
       console.log('Error logging in', error);
     }
-  }
+  };
 
   return (
-    <Paper
-      elevation={6}
-      className="login-paper"
-    >
+    <Paper elevation={6} className="login-paper">
       <Typography variant="h4" gutterBottom align="center" className="login-title">
         Login
       </Typography>
