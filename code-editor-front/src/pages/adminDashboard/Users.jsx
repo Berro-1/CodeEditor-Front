@@ -3,13 +3,12 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import "./Users.css";
 import axios from "axios";
 import { format } from 'date-fns';
-import * as XLSX from 'xlsx';
-import Papa from 'papaparse';
 import { toast } from 'react-toastify';
+import FileUploadPopup from '../../components/fileUploader/fileUploader';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [file, setFile] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -27,54 +26,7 @@ const Users = () => {
     fetchAllUsers();
   }, []);
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
-
-  const handleFileImport = async () => {
-    if (!file) {
-      toast.error("Please select a file to import");
-      return;
-    }
-
-    const fileReader = new FileReader();
-    const fileType = file.name.split('.').pop().toLowerCase();
-
-    fileReader.onload = async (e) => {
-      if (fileType === 'csv') {
-        Papa.parse(file, {
-          header: true,
-          skipEmptyLines: true,
-          complete: async (results) => {
-            console.log("Parsed CSV Data:", results.data);
-            await validateAndSubmitData(results.data);
-          },
-          error: (error) => {
-            toast.error("Error parsing CSV file");
-            console.error("Error parsing CSV file:", error);
-          }
-        });
-      } else if (fileType === 'xlsx') {
-        const binaryStr = e.target.result;
-        const workbook = XLSX.read(binaryStr, { type: 'binary' });
-        const sheetName = workbook.SheetNames[0];
-        const sheet = workbook.Sheets[sheetName];
-        const data = XLSX.utils.sheet_to_json(sheet);
-        console.log("Parsed XLSX Data:", data);
-        await validateAndSubmitData(data);
-      } else {
-        toast.error("Unsupported file type");
-      }
-    };
-
-    if (fileType === 'csv') {
-      fileReader.readAsText(file);
-    } else if (fileType === 'xlsx') {
-      fileReader.readAsBinaryString(file);
-    }
-  };
-
-  const validateAndSubmitData = async (data) => {
+  const handleFileImport = async (data) => {
     const validData = [];
     const emailSet = new Set();
     const errors = [];
@@ -155,8 +107,11 @@ const Users = () => {
     { field: "name", headerName: "Name", flex: 1 },
     { field: "email", headerName: "Email", flex: 1 },
     { field: "created_at", headerName: "Registered At", flex: 1,
-      renderCell: (params)=> format(new Date(params.row.created_at),`yyyy-MM-dd`)
-     },
+      renderCell: (params)=> {
+        const date = new Date(params.row.created_at);
+        return isNaN(date) ? '' : format(date, 'yyyy-MM-dd');
+      }
+    },
   ];
 
   const rows = Array.isArray(users) ? users.map((user) => ({
@@ -179,8 +134,16 @@ const Users = () => {
         >
           All Users
         </h1>
-        <input type="file" onChange={handleFileChange} />
-        <button className="btn" onClick={handleFileImport}>Import</button>
+        <button className="btn" onClick={() => setShowPopup(true)}>Import</button>
+        {showPopup && (
+          <div className="popup-overlay">
+            <div className="popup-content">
+              <h2>Import Users</h2>
+              <FileUploadPopup onFileImport={handleFileImport} />
+              <button className="btn" onClick={() => setShowPopup(false)}>Close</button>
+            </div>
+          </div>
+        )}
       </div>
       <div
         style={{
