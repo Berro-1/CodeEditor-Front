@@ -1,16 +1,13 @@
-body {
-  background-color: #204E45;
-  color: #fff;
+
+  .login-cont{
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
 }
-
 .login-paper {
   padding: 2rem;
+
   max-width: 22vw;
   backdrop-filter: blur(10px);
   border-radius: 10px;
