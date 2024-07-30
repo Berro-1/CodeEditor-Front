@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/navBar/navBar";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -31,8 +30,7 @@ function Login() {
   };
 
   return (
-    <div>
-      <NavBar />
+    <div className="maincont">
       <Paper elevation={6} className="login-paper">
         <Typography
           variant="h4"
