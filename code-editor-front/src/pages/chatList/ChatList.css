@@ -1,9 +1,6 @@
-
-
-.container1 {
+.container2 {
   padding: 20px !important;
   max-width: 600px !important;
-  margin: 0 !important; /* Remove auto margin */
   text-align: left !important; /* Ensure text alignment is left */
   background-color: #2e4a43 !important;
   border-radius: 10px !important;
@@ -13,6 +10,7 @@
 .title {
   font-size: 2em !important;
   margin-bottom: 20px !important;
+  color: #8FD6B3;
 }
 
 .chatList {
@@ -22,11 +20,12 @@
 
 .chatItem {
   padding: 15px !important;
+  width: 95%;
   border-bottom: 1px solid #ccc !important;
   cursor: pointer !important;
   display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
+  flex-direction: column !important; /* Ensure items are stacked vertically */
+  align-items: flex-start !important; /* Align items to the left */
   transition: background-color 0.2s !important;
 }
 
@@ -38,6 +37,7 @@
   display: flex !important;
   flex-direction: column !important;
   text-align: left !important;
+  align-items: flex-start;
 }
 
 .chatPreview {

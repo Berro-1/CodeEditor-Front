@@ -8,7 +8,6 @@ body {
   .chat-container {
     padding: 20px !important;
     max-width: 800px !important;
-    margin: 0 auto !important;
     background-color: #2e4a43 !important;
     border-radius: 10px !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
@@ -17,7 +16,7 @@ body {
   .chat-title {
     font-size: 2em !important;
     margin-bottom: 20px !important;
-    text-align: center !important;
+    text-align: left !important;
   }
   
   .messages-container {

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import {jwtDecode} from 'jwt-decode';
 import './Chat.css';
 
 const Chat = () => {
-  const { chatId } = useParams();
+  const { id: chatId } = useParams();
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [chatPartnerName, setChatPartnerName] = useState('');
@@ -14,13 +13,11 @@ const Chat = () => {
     const fetchMessages = async () => {
       try {
         const token = localStorage.getItem('token');
-
         const response = await axios.get(`http://127.0.0.1:8000/api/message/get/${chatId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
         });
-
         const { chat_partner_name, messages } = response.data;
         setMessages(messages);
         setChatPartnerName(chat_partner_name);

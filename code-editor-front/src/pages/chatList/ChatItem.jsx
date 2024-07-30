@@ -3,8 +3,7 @@ import './ChatList.css';
 
 const ChatItem = ({ chat, userId, openChat }) => {
   const chatPartnerName = chat.user2 === userId ? chat.user1Name : chat.user2Name;
-
-  return (
+    return (
     <li className="chatItem" onClick={() => openChat(chat.id)}>
       <div className="chatInfo">
         <span>Chat with {chatPartnerName}</span>
