@@ -6,7 +6,7 @@ const ChatItem = ({ chat, userId, openChat }) => {
     return (
     <li className="chatItem" onClick={() => openChat(chat.id)}>
       <div className="chatInfo">
-        <span>Chat with {chatPartnerName}</span>
+        <span>{chatPartnerName}</span>
         <span className="chatPreview">{chat.latestMessage || 'No messages yet'}</span>
       </div>
     </li>
