@@ -1,0 +1,14 @@
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  /* Ensure content is centered vertically */
+  width: 800px;
+  height: 500px;
+  background-color: #072e33; /* dark teal background */
+}
+
+.editor {
+  width: 90%;
+  height: 75vh;
+  margin-top: 20px; /* Add some margin for better spacing */
+}
