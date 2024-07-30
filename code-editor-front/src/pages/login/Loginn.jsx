@@ -17,7 +17,7 @@ function Login() {
         toast.error('Please enter both email and password');
         return;
       }
-      const response = await axios.post('http://127.0.0.1:8000/api/auth/login', {
+      const response = await axios.post('http://127.0.0.1:8000/api/login', {
         email: email,
         password: password
       });
@@ -31,6 +31,7 @@ function Login() {
   };
 
   return (
+    <div className="login-cont">
     <Paper elevation={6} className="login-paper">
       <Typography variant="h4" gutterBottom align="center" className="login-title">
         Login
@@ -75,7 +76,7 @@ function Login() {
           Login
         </Button>
       </div>
-    </Paper>
+    </Paper></div>
   );
 }
 

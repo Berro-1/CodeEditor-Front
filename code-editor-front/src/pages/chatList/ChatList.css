@@ -1,0 +1,51 @@
+
+
+.container1 {
+  padding: 20px !important;
+  max-width: 600px !important;
+  margin: 0 !important; /* Remove auto margin */
+  text-align: left !important; /* Ensure text alignment is left */
+  background-color: #2e4a43 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.title {
+  font-size: 2em !important;
+  margin-bottom: 20px !important;
+}
+
+.chatList {
+  list-style-type: none !important;
+  padding: 0 !important;
+}
+
+.chatItem {
+  padding: 15px !important;
+  border-bottom: 1px solid #ccc !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  transition: background-color 0.2s !important;
+}
+
+.chatItem:hover {
+  background-color: #3b6b5b !important;
+}
+
+.chatInfo {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+}
+
+.chatPreview {
+  font-size: 12px !important;
+  color: #bbb !important;
+}
+
+.loading, .error, .noChats {
+  font-size: 1.2em !important;
+  color: #ccc !important;
+}
