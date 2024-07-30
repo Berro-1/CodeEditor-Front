@@ -1,7 +1,8 @@
 body {
-    background-color: #204E45 !important;
-    color: #fff !important;
-    margin: 0 !important;
-    font-family: 'Roboto', sans-serif !important;
-    padding: 10px 40px;
-  }
+  background-color: #204e45;
+  color: #fff;
+
+  height: 100vh;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+} 

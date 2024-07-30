@@ -1,37 +1,40 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Paper } from "@mui/material";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./Login.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import { toast } from "react-toastify";
+import axios from "axios";
+import "./signup.css";
+import NavBar from "../../components/navBar/navBar";
+import { Link } from "react-router-dom";
+function Signup() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const login = async (email, password) => {
+  const Signup = async (name, email, password) => {
     try {
-      if (!email || !password) {
-        toast.error("Please enter both email and password");
+      if (!name || !email || !password) {
+        toast.error("Please fill all the fields");
         return;
       }
-      const response = await axios.post('http://127.0.0.1:8000/api/login', {
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+        name: name,
         email: email,
         password: password,
       });
-      toast.success('Login successful');
-      localStorage.setItem('token', response.data.authorization.token);
-      navigate('/chats');
+      toast.success("Signup successful");
+      console.log(response);
+      navigate("/home");
     } catch (error) {
-      toast.error("Error logging in");
-      console.log("Error logging in", error);
+      toast.error("Error signing up in");
+      console.log("Error signing up in ", error);
     }
   };
 
   return (
-    <div className="maincont">
+    <div>
+      <NavBar />
       <Paper elevation={6} className="login-paper">
         <Typography
           variant="h4"
@@ -39,12 +42,28 @@ function Login() {
           align="center"
           className="login-title"
         >
-          Login
+          Sign up
         </Typography>
-        <div>
+
+        <form>
           <TextField
-            id="Email"
-            label="Email"
+            id="username"
+            label="Username"
+            variant="standard"
+            fullWidth
+            onChange={(e) => setName(e.target.value)}
+            margin="normal"
+            InputLabelProps={{
+              className: "input-label",
+            }}
+            InputProps={{
+              className: "input-text",
+            }}
+          />
+          <TextField
+            id="email"
+            label="email"
+            type="email"
             variant="standard"
             fullWidth
             onChange={(e) => setEmail(e.target.value)}
@@ -76,14 +95,15 @@ function Login() {
             color="primary"
             fullWidth
             className="login-button"
-            onClick={() => login(email, password)}
+            onClick={() => Signup(name, email, password)}
           >
-            Login
+            Signup
           </Button>
-        </div>
+          <Link to="/">Have account</Link>
+        </form>
       </Paper>
     </div>
   );
 }
 
-export default Login;
+export default Signup;

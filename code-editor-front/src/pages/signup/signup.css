@@ -1,16 +1,7 @@
-.maincont {
-  background-color: #204E45;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  margin-top: 20vh;
-}
+
+
 .login-paper {
   padding: 2rem;
-
   max-width: 22vw;
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -20,11 +11,11 @@
 }
 
 .login-title {
-  color: #8FD6B3;
+  color: #8fd6b3;
 }
 
 .input-label {
-  color: #8FD6B3 !important;
+  color: #8fd6b3 !important;
 }
 
 .input-text {
@@ -32,23 +23,23 @@
 }
 
 .MuiInput-underline:before {
-  border-bottom-color: #4E9D84 !important;
+  border-bottom-color: #4e9d84 !important;
 }
 
 .MuiInput-underline:hover:not(.Mui-disabled):before {
-  border-bottom-color: #8FD6B3 !important;
+  border-bottom-color: #8fd6b3 !important;
 }
 
 .MuiInput-underline:after {
-  border-bottom-color: #8FD6B3 !important;
+  border-bottom-color: #8fd6b3 !important;
 }
 
 .login-button {
-  color: #204E45 !important;
-  background-color: #8FD6B3 !important;
+  color: #204e45 !important;
+  background-color: #8fd6b3 !important;
   margin-top: 1rem !important;
 }
 
 .login-button:hover {
-  background-color: #4E9D84 !important;
+  background-color: #4e9d84 !important;
 }
