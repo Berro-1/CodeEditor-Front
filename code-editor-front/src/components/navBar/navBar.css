@@ -6,7 +6,6 @@
   padding: 10px 40px;
   background-color: #1b3b3b;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
   height: 50px;
   z-index: 1000;
 }
@@ -23,14 +22,12 @@
   width: 110px;
 }
 
-
 .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
 }
 
-  
 .nav-links a {
   color: #d4f1f4;
   text-decoration: none;
@@ -45,6 +42,24 @@
   border-radius: 4px;
 }
 
+.logout-button {
+  color: #d4f1f4;
+  font-size: 18px;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: #0f969c;
+  color: #ffffff;
+}
+
+/* Search bar styles */
 .search {
   display: flex;
   align-items: center;
@@ -85,4 +100,3 @@
   border-radius: 4px;
   margin-top: 5px;
 }
-

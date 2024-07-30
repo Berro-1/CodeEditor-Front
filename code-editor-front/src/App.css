@@ -1,8 +1,11 @@
 body {
   background-color: #204e45;
   color: #fff;
-
   height: 100vh;
   margin: 0;
   font-family: "Roboto", sans-serif;
 } 
+
+.p-40{
+  padding: 20px 40px;
+}
