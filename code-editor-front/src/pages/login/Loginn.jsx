@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -80,6 +80,9 @@ function Login() {
           >
             Login
           </Button>
+          <Typography align="right" className="signup-link">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </Typography>
         </div>
       </Paper>
     </div>

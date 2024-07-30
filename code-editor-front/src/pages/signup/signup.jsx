@@ -3,9 +3,9 @@ import { TextField, Button, Typography, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import "./signup.css";
-import NavBar from "../../components/navBar/navBar";
+import "../login/Login.css";
 import { Link } from "react-router-dom";
+
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,14 +27,13 @@ function Signup() {
       console.log(response);
       navigate("/home");
     } catch (error) {
-      toast.error("Error signing up in");
-      console.log("Error signing up in ", error);
+      toast.error("Error signing up");
+      console.log("Error signing up", error);
     }
   };
 
   return (
-    <div>
-      <NavBar />
+    <div className="maincont">
       <Paper elevation={6} className="login-paper">
         <Typography
           variant="h4"
@@ -44,7 +43,6 @@ function Signup() {
         >
           Sign up
         </Typography>
-
         <form>
           <TextField
             id="username"
@@ -99,7 +97,9 @@ function Signup() {
           >
             Signup
           </Button>
-          <Link to="/">Have account</Link>
+          <Typography align="right" className="login-link">
+            Already have an account? <Link to="/">Login</Link>
+          </Typography>
         </form>
       </Paper>
     </div>
