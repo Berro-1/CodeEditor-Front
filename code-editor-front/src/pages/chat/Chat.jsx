@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {jwtDecode} from 'jwt-decode';
 import { useParams } from 'react-router-dom';
 import './Chat.css';
 
@@ -8,19 +9,28 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [chatPartnerName, setChatPartnerName] = useState('');
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://127.0.0.1:8000/api/message/get/${chatId}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        const { chat_partner_name, messages } = response.data;
-        setMessages(messages);
-        setChatPartnerName(chat_partner_name);
+        if (token) {
+          const decodedToken = jwtDecode(token);
+          setUserId(decodedToken.sub); // Assuming 'sub' contains the user's ID
+
+          const response = await axios.get(`http://127.0.0.1:8000/api/message/get/${chatId}`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+
+          const { chat_partner_name, messages } = response.data;
+          setMessages(messages);
+          setChatPartnerName(chat_partner_name);
+        } else {
+          console.error('Token not found');
+        }
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
@@ -32,13 +42,17 @@ const Chat = () => {
   const sendMessage = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`http://127.0.0.1:8000/api/message/createMessage/${chatId}`, { message }, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      setMessages([...messages, response.data.message]); // Adjust to match the response structure
-      setMessage('');
+      if (token) {
+        const response = await axios.post(`http://127.0.0.1:8000/api/message/createMessage/${chatId}`, { message }, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        setMessages([...messages, response.data.message]); // Adjust to match the response structure
+        setMessage('');
+      } else {
+        console.error('Token not found');
+      }
     } catch (error) {
       console.error('Error sending message:', error);
     }
@@ -49,8 +63,8 @@ const Chat = () => {
       <h1 className="chat-title">Chat with {chatPartnerName}</h1>
       <div className="messages-container">
         {messages && messages.map(msg => (
-          <div key={msg.id} className={`message ${msg.sender_id === msg.userId ? 'own-message' : 'other-message'}`}>
-            <strong>{msg.sender_name}</strong>: {msg.message}
+          <div key={msg.id} className={`message ${msg.sender_id == userId ? 'own-message' : 'other-message'}`}>
+            <strong>{msg.sender_id == userId? 'You': msg.sender_name}</strong> {msg.message}
           </div>
         ))}
       </div>

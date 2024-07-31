@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./navBar.css"; // Ensure this import is correct
+import "./navBar.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
@@ -21,6 +21,12 @@ const NavBar = () => {
         </li>
         <li>
           <Link to="/CodeEditor">Coder</Link>
+        </li>
+        <li>
+          <Link to="/user/userCodes">My Codes</Link>
+        </li>
+        <li>
+          <Link to="/chats">Chats</Link>
         </li>
         <li>
           <button onClick={handleLogout} className="logout-button">
