@@ -1,6 +1,5 @@
 .container2 {
   padding: 20px !important;
-  max-width: 600px !important;
   text-align: left !important; /* Ensure text alignment is left */
   background-color: #2e4a43 !important;
   border-radius: 10px !important;
@@ -24,8 +23,8 @@
   border-bottom: 1px solid #ccc !important;
   cursor: pointer !important;
   display: flex !important;
-  flex-direction: column !important; /* Ensure items are stacked vertically */
-  align-items: flex-start !important; /* Align items to the left */
+  flex-direction: column !important;
+  align-items: flex-start !important;
   transition: background-color 0.2s !important;
 }
 
