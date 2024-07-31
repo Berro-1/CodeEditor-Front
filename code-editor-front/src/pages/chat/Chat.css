@@ -58,6 +58,8 @@
   flex-direction: column;
   width: fit-content;
   width: 60%;
+  word-wrap: break-word; /* Ensure long words break and wrap */
+  word-break: break-all;
 }
 
 .own-message {
@@ -95,4 +97,28 @@
 
 .send-button:hover {
   background-color: #4e9d84 !important;
+}
+/* Custom scrollbar styles */
+.scrollbar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #8fd6b3 #2e4a43; /* For Firefox */
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #2e4a43; /* Track color */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #8fd6b3; /* Thumb color */
+  border-radius: 10px;
+  border: 2px solid #2e4a43; /* Padding around thumb */
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #4e9d84; /* Thumb hover color */
 }
