@@ -59,8 +59,8 @@ const ChatList = () => {
   return (
     <div>
     <div className="container2">
-      <SearchBar/>
       <h1 className="title">Chats</h1>
+      <SearchBar/>
       <ul className="chatList">
         {chats.length > 0 ? (
           chats.map(chat => (

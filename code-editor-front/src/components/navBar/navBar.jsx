@@ -16,9 +16,7 @@ const NavBar = () => {
         <img src="/logo.png" alt="logo" />
       </div>
       <ul className="nav-links">
-        <li>
-          <Link to="/home">Home</Link>
-        </li>
+       
         <li>
           <Link to="/CodeEditor">Coder</Link>
         </li>
