@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import ChatItem from './ChatItem';
+import SearchBar from '../../components/searchBar/searchBar';
 import './ChatList.css';
 
 const ChatList = () => {
@@ -56,6 +57,8 @@ const ChatList = () => {
   }
 
   return (
+    <div>
+      <SearchBar/>
     <div className="container2">
       <h1 className="title">Chats</h1>
       <ul className="chatList">
@@ -67,7 +70,7 @@ const ChatList = () => {
           <div className="noChats">No chats available</div>
         )}
       </ul>
-    </div>
+    </div></div>
   );
 };
 
