@@ -58,8 +58,8 @@ const ChatList = () => {
 
   return (
     <div>
-      <SearchBar/>
     <div className="container2">
+      <SearchBar/>
       <h1 className="title">Chats</h1>
       <ul className="chatList">
         {chats.length > 0 ? (
