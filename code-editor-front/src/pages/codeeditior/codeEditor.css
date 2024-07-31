@@ -12,3 +12,20 @@
   height: 75vh;
   margin-top: 20px; /* Add some margin for better spacing */
 }
+
+.suggestions {
+  margin-top: 20px;
+}
+
+.suggestions ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.suggestions li {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
