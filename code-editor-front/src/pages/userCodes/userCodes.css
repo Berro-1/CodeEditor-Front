@@ -1,0 +1,32 @@
+.user-codes-container {
+    padding: 20px;
+    background-color: #2e4a43;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .codes-list {
+    margin-top: 20px;
+  }
+  
+  .code-item {
+    background-color: #4e9d84;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .code-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .code-item pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+  
