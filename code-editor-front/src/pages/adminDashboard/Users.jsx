@@ -98,7 +98,7 @@ const Users = () => {
   };
 
   const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const re = /^[^\s@]+@[^\s@]+$/;
     return re.test(email);
   };
 
@@ -126,7 +126,6 @@ const Users = () => {
       <div className="container">
         <h1
           style={{
-            marginBottom: "20px",
             color: "#fff",
             fontSize: "36px",
             fontWeight: "bold",
@@ -146,14 +145,14 @@ const Users = () => {
         )}
       </div>
       <div
+        className="scrollbar" // Apply the custom scrollbar class
         style={{
           height: "70vh",
-          width: "70vw",
-          margin: "0 auto",
-          padding: "20px",
-          backgroundColor: "#ffffff",
+          width: "100%",
+          backgroundColor: "#2e4a43",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          color: "#fff"
         }}
       >
         {users && (
@@ -165,9 +164,11 @@ const Users = () => {
               "& .MuiDataGrid-root": {
                 border: "none",
                 fontFamily: "Arial, sans-serif",
+                color: "#fff"
               },
               "& .MuiDataGrid-cell": {
                 borderBottom: "none",
+                color: "#fff"
               },
               "& .MuiDataGrid-columnHeaders": {
                 backgroundColor: "#1a73e8",
@@ -179,17 +180,20 @@ const Users = () => {
                 fontWeight: "bold",
               },
               "& .MuiDataGrid-row:nth-of-type(odd)": {
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "#3b6b5b",
               },
               "& .MuiDataGrid-row:hover": {
-                backgroundColor: "#e0f7fa",
+                backgroundColor: "#4e9d84",
               },
               "& .MuiDataGrid-toolbarContainer": {
                 justifyContent: "flex-end",
                 padding: "10px",
+                backgroundColor: "#2e4a43",
+                color: "#8FD6B3",
               },
               "& .MuiDataGrid-footerContainer": {
-                backgroundColor: "#f1f1f1",
+                backgroundColor: "#8FD6B3",
+                color: "#fff"
               },
               "& .MuiDataGrid-virtualScroller": {
                 scrollbarWidth: "thin",
@@ -204,6 +208,22 @@ const Users = () => {
                 "&::-webkit-scrollbar-thumb:hover": {
                   backgroundColor: "#555",
                 },
+              },
+              "& .MuiDataGrid-toolbarIcon": {
+                color: "#8FD6B3",
+              },
+              "& .MuiButtonBase-root": {
+                color: "#8FD6B3",
+              },
+              "& .MuiDataGrid-selectedRowCount": {
+                color: "#fff",
+              },
+              "& .MuiPaginationItem-root": {
+                color: "#fff",
+              },
+              "& .MuiPaginationItem-root.Mui-selected": {
+                backgroundColor: "#4e9d84",
+                color: "#fff",
               },
             }}
           />
