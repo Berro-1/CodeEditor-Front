@@ -1,32 +1,51 @@
 .user-codes-container {
-    padding: 20px;
-    background-color: #2e4a43;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .codes-list {
-    margin-top: 20px;
-  }
-  
-  .code-item {
-    background-color: #4e9d84;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .code-item h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-  .code-item pre {
-    background-color: #272822;
-    color: #f8f8f2;
-    padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
-  }
-  
+  padding: 20px;
+  background-color: #2e4a43;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.codes-list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between the cards */
+}
+
+.code-item {
+  background-color: #4e9d84;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33.333% - 40px); /* Three cards per row with spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-item h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.code-item pre {
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-top: 10px;
+  flex-grow: 1; /* Ensure pre tag takes up remaining space */
+}
+
+.icon-button {
+  align-self: flex-end;
+}
