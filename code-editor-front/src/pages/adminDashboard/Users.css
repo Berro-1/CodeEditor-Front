@@ -1,14 +1,82 @@
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.btn{
-    padding: 8px 18px;
-    background-color: #8FD6B3;
-    color: #204E45;
-    border-radius: 8px;
+
+.btn {
+  padding: 8px 18px;
+  background-color: #8FD6B3;
+  color: #204E45;
+  border-radius: 8px;
 }
+
 .btn:hover {
-    background-color: #4E9D84 !important;
-  }
+  background-color: #4E9D84 !important;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.file-upload-popup {
+  margin-bottom: 20px;
+}
+
+.file-upload-popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.file-upload-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 18px;
+  background-color: #8FD6B3;
+  color: #204E45;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.btn:hover {
+  background-color: #4E9D84;
+}
+
+.btn:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
