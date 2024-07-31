@@ -15,7 +15,7 @@ import CodeEditor from "./pages/codeeditior/codeEditor";
 function App() {
   return (
     <div>
-      <Login />
+      <CodeEditor />
     </div>
   );
 }
