@@ -18,6 +18,7 @@ import ChatList from "./pages/chatList/ChatList";
 import Chat from "./pages/chat/Chat";
 import ProtectedRoute from "./components/protectedRoutes/protectedRoutes"; // Import the ProtectedRoute component
 import "./App.css";
+import UserCodes from "./pages/userCodes/userCodes";
 
 const LayoutWithNavBar = () => (
   <div>
@@ -60,6 +61,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Users />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user/userCodes"
+            element={
+              <ProtectedRoute>
+                <UserCodes />
               </ProtectedRoute>
             }
           />
