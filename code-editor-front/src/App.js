@@ -83,8 +83,7 @@ function App() {
 
   return (
     <div>
-      <ToastContainer />
-      <RouterProvider router={router} />
+      <CodeEditor />
     </div>
   );
 }

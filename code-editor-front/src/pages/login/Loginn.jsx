@@ -15,10 +15,12 @@ function Login() {
     try {
       if (!email || !password) {
         toast.error("Please enter both email and password");
+        toast.error("Please enter both email and password");
         return;
       }
       const response = await axios.post('http://127.0.0.1:8000/api/login', {
         email: email,
+        password: password,
         password: password,
       });
       toast.success('Login successful');
@@ -27,7 +29,10 @@ function Login() {
     } catch (error) {
       toast.error("Error logging in");
       console.log("Error logging in", error);
+      toast.error("Error logging in");
+      console.log("Error logging in", error);
     }
+  };
   };
 
   return (

@@ -1,0 +1,40 @@
+.languageBox {
+  width: 200px;
+  margin: 20px; /* Center horizontally */
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: #05161a; /* Very dark blue for contrast */
+  color: white; /* Ensures text is readable */
+}
+
+.languageBox .MuiInputLabel-root {
+  color: #8fd6b3; /* Soft blue for visibility */
+}
+
+.languageBox .MuiOutlinedInput-root {
+  color: white;
+}
+
+.languageBox .MuiSelect-icon {
+  color: white;
+}
+
+.languageBox .MuiOutlinedInput-notchedOutline {
+  border-color: #8fd6b3; /* Soft blue for visibility */
+}
+
+.languageBox .MuiMenuItem-root {
+  color: #05161a; /* Dark blue for contrast */
+  background-color: white;
+}
+
+.languageBox .MuiMenuItem-root:hover {
+  background-color: #8fd6b3; /* Soft blue on hover */
+}
+
+.languageBox .MuiMenuItem-root h3 {
+  margin: 0;
+  display: inline;
+  color: #8fd6b3; /* Soft blue for visibility */
+}

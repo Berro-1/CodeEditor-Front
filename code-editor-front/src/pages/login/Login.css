@@ -3,7 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20vh;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Paper component styles */
