@@ -59,7 +59,6 @@ const Compiler = ({ editorRef, language }) => {
 
   return (
     <div className="compiler">
-      <h2>Output</h2>
       <button className="outputButton" onClick={runCode} disabled={isLoading}>
         {isLoading ? "Running..." : "Run Code"}
       </button>
@@ -73,7 +72,6 @@ const Compiler = ({ editorRef, language }) => {
         {output ? output : `Click "Run Code" to see output here`}
       </div>
     </div>
-  );
-};
-
-export default Compiler;
+ 
+  )}
+  export default Compiler;
