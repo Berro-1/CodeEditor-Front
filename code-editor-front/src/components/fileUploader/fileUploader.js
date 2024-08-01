@@ -63,7 +63,7 @@ const FileUploadPopup = ({ onFileImport }) => {
   };
 
   return (
-    <div className="file-upload-popup">
+    <div className="file-upload-popup" style={{zIndex:100000}}>
       <input type="file" onChange={handleFileChange} />
       <button className="btn" onClick={handleConfirmImport} disabled={!file}>
         Confirm Import

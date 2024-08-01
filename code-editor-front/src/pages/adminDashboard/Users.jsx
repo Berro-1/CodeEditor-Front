@@ -106,6 +106,7 @@ const Users = () => {
     { field: "id", headerName: "ID", flex: 1 },
     { field: "name", headerName: "Name", flex: 1 },
     { field: "email", headerName: "Email", flex: 1 },
+    { field: "role", headerName: "Role", flex: 1 },
     { field: "created_at", headerName: "Registered At", flex: 1,
       renderCell: (params)=> {
         const date = new Date(params.row.created_at);
@@ -118,6 +119,7 @@ const Users = () => {
     id: user.id,
     name: user.name,
     email: user.email,
+    role: user.role,
     created_at: user.created_at,
   })) : [];
 
