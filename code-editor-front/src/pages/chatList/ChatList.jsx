@@ -18,7 +18,7 @@ const ChatList = () => {
       const token = localStorage.getItem('token');
       if (!token) {
         localStorage.clear();
-        navigate('/login');
+        navigate('/');
         return;
       }
 
@@ -26,11 +26,11 @@ const ChatList = () => {
       const userId = decodedToken.sub;
       setUserId(userId);
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/chat/user/${userId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+      const response = await axios.get(`http://127.0.0.1:8000/api/chat/user/${userId}`)
+      //   headers: {
+      //     'Authorization': `Bearer ${token}`
+      //   }
+      // });
       setChats(response.data);
     } catch (error) {
       setError('Error fetching chats');

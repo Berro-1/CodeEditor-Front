@@ -21,7 +21,6 @@ function Login() {
       const response = await axios.post('http://127.0.0.1:8000/api/login', {
         email: email,
         password: password,
-        password: password,
       });
       toast.success('Login successful');
       localStorage.setItem('token', response.data.authorization.token);
@@ -32,7 +31,6 @@ function Login() {
       toast.error("Error logging in");
       console.log("Error logging in", error);
     }
-  };
   };
 
   return (

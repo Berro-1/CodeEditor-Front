@@ -18,7 +18,7 @@ const NavBar = () => {
       <ul className="nav-links">
        
         <li>
-          <Link to="/CodeEditor">Coder</Link>
+          <Link to="/codeEditor">Coder</Link>
         </li>
         <li>
           <Link to="/user/userCodes">My Codes</Link>

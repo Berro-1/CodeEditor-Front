@@ -20,12 +20,7 @@ const Chat = () => {
           setUserId(decodedToken.sub); // Assuming 'sub' contains the user's ID
 
           const response = await axios.get(
-            `http://127.0.0.1:8000/api/message/get/${chatId}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
+            `http://127.0.0.1:8000/api/message/get/${chatId}`
           );
 
           const { chat_partner_name, messages } = response.data;

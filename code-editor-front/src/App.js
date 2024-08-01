@@ -19,7 +19,7 @@ import Chat from "./pages/chat/Chat";
 import ProtectedRoute from "./components/protectedRoutes/protectedRoutes"; // Import the ProtectedRoute component
 import "./App.css";
 import UserCodes from "./pages/userCodes/userCodes";
-
+import CodeEditor from './pages/codeeditior/codeEditor'
 const LayoutWithNavBar = () => (
   <div>
     <NavBar />
@@ -57,6 +57,14 @@ function App() {
             }
           />
           <Route
+            path="/codeEditor"
+            element={
+              <ProtectedRoute>
+                <CodeEditor />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/admin/users"
             element={
               <ProtectedRoute>
@@ -83,7 +91,8 @@ function App() {
 
   return (
     <div>
-      <CodeEditor />
+        <ToastContainer />
+        <RouterProvider router={router} />
     </div>
   );
 }
