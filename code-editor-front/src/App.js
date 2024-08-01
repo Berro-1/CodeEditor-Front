@@ -17,9 +17,12 @@ import Users from "./pages/adminDashboard/Users";
 import ChatList from "./pages/chatList/ChatList";
 import Chat from "./pages/chat/Chat";
 import ProtectedRoute from "./components/protectedRoutes/protectedRoutes"; // Import the ProtectedRoute component
+import ProtectedAdminRoute from "./components/protectedRoutes/protectedAdminRoute"
 import "./App.css";
 import UserCodes from "./pages/userCodes/userCodes";
 import CodeEditor from './pages/codeeditior/codeEditor'
+
+
 const LayoutWithNavBar = () => (
   <div>
     <NavBar />
@@ -67,9 +70,9 @@ function App() {
           <Route
             path="/admin/users"
             element={
-              <ProtectedRoute>
+              <ProtectedAdminRoute isAdminRoute={true}>
                 <Users />
-              </ProtectedRoute>
+              </ProtectedAdminRoute>
             }
           />
           <Route
