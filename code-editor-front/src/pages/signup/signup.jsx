@@ -25,7 +25,7 @@ function Signup() {
       });
       toast.success("Signup successful");
       console.log(response);
-      navigate("/home");
+      navigate("/chats");
     } catch (error) {
       toast.error("Error signing up");
       console.log("Error signing up", error);
